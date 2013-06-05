@@ -9,11 +9,12 @@ pkgdesc="Free open source implementation of TURN and STUN Server"
 arch=('i686' 'x86_64')
 url="http://code.google.com/p/rfc5766-turn-server/"
 license=('custom:BSD New')
-#no redis headers
 makedepends=('gcc>=3.4.4' 'make')
 depends=('libevent')
-optdepends=('postgresql-client' 'libmysqlclient')
+#no redis headers in redi package
+optdepends=('postgresql-client: to use postgresql' 'libmysqlclient')
 backup=("etc/turnserver.conf" "etc/turnuserdb.conf")
+changelog=ChangeLog
 source=(https://${pkgname}.googlecode.com/files/${_portname}-$pkgver.tar.gz)
 sha1sums=('155990b95d399542db1bb497f1746c1b9bb290d2')
 
