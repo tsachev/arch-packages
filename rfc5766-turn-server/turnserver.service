@@ -3,11 +3,9 @@ Description=STUN and TURN Relay Server for VoIP and WebRTC
 After=network.target
 
 [Service]
+Type=forking
 User=turnserver
-Group=turnserver
 ExecStart=/usr/bin/turnserver -c /etc/turnserver.conf -o -v
-KillMode=process
-Restart=always
 
 [Install]
 WantedBy=multi-user.target
