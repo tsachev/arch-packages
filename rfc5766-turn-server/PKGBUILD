@@ -3,7 +3,7 @@
 pkgname=rfc5766-turn-server
 _portname=turnserver
 pkgver=1.8.7.0
-pkgrel=1
+pkgrel=2
 pkgdesc="STUN and TURN Relay Server for VoIP and WebRTC"
 arch=('i686' 'x86_64')
 url="http://code.google.com/p/rfc5766-turn-server/"
@@ -19,10 +19,7 @@ sha1sums=('426feafbcc9c11e41f324e9f06a159e9b8fa29df' '0c5b348e793bd52ce0ee38d420
 build() {
   cd "${srcdir}/$_portname-${pkgver}"
   
-  PREFIX=/usr \
-  MANPREFIX=/usr/share \
-  EXAMPLESDIR="/usr/share/$_portname/examples" \
-  ./configure
+  ./configure --prefix=/usr --manprefix=/usr/share --examplesdir="/usr/share/$_portname/examples"
 
   make
 }
