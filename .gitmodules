@@ -1,0 +1,3 @@
+[submodule "eclipse-checkstyle"]
+	path = eclipse-checkstyle
+	url = ssh://aur@aur4.archlinux.org/eclipse-checkstyle.git
