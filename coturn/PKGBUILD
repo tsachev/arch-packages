@@ -2,7 +2,7 @@
 
 pkgname=coturn
 _portname=turnserver
-pkgver=4.0.1.2
+pkgver=4.4.5.4
 pkgrel=1
 pkgdesc="Free open source implementation of TURN and STUN Server"
 arch=('i686' 'x86_64')
@@ -12,12 +12,9 @@ depends=('libevent' 'postgresql-libs' 'libmysqlclient' 'hiredis')
 conflicts=('rfc5766-turn-server')
 provides=('rfc5766-turn-server')
 install="$_portname.install"
-backup=("etc/turnserver.conf" "etc/turnuserdb.conf")
+backup=("etc/turnserver.conf")
 source=(http://$_portname.open-sys.org/downloads/v$pkgver/$_portname-$pkgver.tar.gz $_portname.service $_portname.tmpfiles.d)
-md5sums=('181c48465383f4992c8331b616bf1fa4'
-         'bf568b614a17ee439e831b8f8aa7236a'
-         'aa7bf422a9dfba7febb56dc172feb1cf')
-sha1sums=('380167714004fbd22b0033ca0f4ca6a871ba25ca'
+sha1sums=('9f6db4333cec21bab052c467212bf5da93d630e3'
           '0c5b348e793bd52ce0ee38d420b26c9b2a2e2ca5'
           '445e9982549d7ed018bc1fb6176a730313ae3d26')
 
@@ -39,7 +36,6 @@ package() {
   make DESTDIR="$pkgdir" install
   
   install -D "$pkgdir/usr/share/$_portname/examples/etc/turnserver.conf" "$pkgdir/etc/turnserver.conf"
-  install -D "$pkgdir/usr/share/$_portname/examples/etc/turnuserdb.conf" "$pkgdir/etc/turnuserdb.conf"
   rm -r "$pkgdir/usr/etc"
 
   chmod 644 "$pkgdir/usr/lib/libturnclient.a"
